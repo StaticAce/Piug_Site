@@ -1,8 +1,8 @@
-// settings.js
 function toggleDarkMode() {
     var body = document.body;
     var textElements = document.getElementsByClassName("text-secondary");
     var colorButton = document.getElementById("colorToggleButton");
+    var scrollButton = document.getElementById("scroll-down-button"); 
     var isDarkMode = localStorage.getItem("darkMode") === "true";
 
     if (isDarkMode) {
@@ -12,6 +12,8 @@ function toggleDarkMode() {
         }
         colorButton.style.backgroundColor = "white";
         colorButton.style.color = "black";
+        scrollButton.style.backgroundColor = "white"; 
+        scrollButton.style.color = "black";
         localStorage.setItem("darkMode", "false");
     } else {
         body.style.backgroundColor = "black";
@@ -20,14 +22,8 @@ function toggleDarkMode() {
         }
         colorButton.style.backgroundColor = "black";
         colorButton.style.color = "white";
+        scrollButton.style.backgroundColor = "black"; 
+        scrollButton.style.color = "white";
         localStorage.setItem("darkMode", "true");
     }
 }
-
-// Check the saved dark mode state when the page loads
-document.addEventListener("DOMContentLoaded", function () {
-    var isDarkMode = localStorage.getItem("darkMode") === "true";
-    if (isDarkMode) {
-        toggleDarkMode();
-    }
-});

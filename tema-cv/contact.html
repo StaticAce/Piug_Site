@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body class="text-secondary">
+    <div id="scroll-down-button" class="scroll-button">Scroll Down</div>
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="portfolio.html">CV</a>
@@ -54,5 +55,23 @@
         
         document.body.appendChild(colorButton);
     </script>
+        <script>
+            var scrollDownButton = document.getElementById("scroll-down-button");
+        
+            scrollDownButton.addEventListener("click", function() {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: "smooth"
+                });
+            });
+    
+            window.addEventListener("scroll", function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                scrollDownButton.style.display = "none";
+            } else {
+                scrollDownButton.style.display = "block";
+            }
+        });
+        </script>
 </body>
 </html>
